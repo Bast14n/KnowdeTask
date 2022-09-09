@@ -8,6 +8,6 @@ export default defineConfig({
     baseUrl: 'https://www.saucedemo.com',
     viewportHeight: 1920,
     viewportWidth: 1080,
-    "chromeWebSecurity": false
+    "chromeWebSecurity": false,
   },
 });
