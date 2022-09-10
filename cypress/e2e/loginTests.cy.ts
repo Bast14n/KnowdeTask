@@ -1,12 +1,13 @@
 import LoginPage from "../POM/loginPage"
 
 const loginPage = new LoginPage();
+
+const properUsername = 'standard_user';
 const password = 'secret_sauce';
 
 describe('Performing logging tests in application', () => {
     beforeEach(() => {
-        cy.window().its('sessionStorage').invoke('clear')
-        cy.visit('/');
+        cy.clearSessionStorageAndVisitPage();
         loginPage.checkIfPageIsFullyLoaded();
     })
 
@@ -25,15 +26,15 @@ describe('Performing logging tests in application', () => {
     })
 
     it('#3 When user try to log as proper user #Then user should log in, page should changed and local storage should contain proper data', () => {
-        loginPage.typeLoginAndCheckIfFieldIsFilled('standard_user');
+        loginPage.typeLoginAndCheckIfFieldIsFilled(properUsername);
         loginPage.typePasswordAndCheckIfFieldIsFilled(password);
 
         loginPage.buttonLogin().should('be.enabled');
         loginPage.buttonLogin().click();
 
-        cy.url().should('eq', 'https://www.saucedemo.com/inventory.html');
+        cy.url().should('contain', 'inventory.html');
 
         // Checking session storage value is disabled because currently data is not been saved there after login
-        // cy.window().its('sessionStorage').invoke('getItem', 'session-username').should('eq', 'standard_user');
+        //cy.assertSessionStorageData('session-username', properUsername);
     })
 })
