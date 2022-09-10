@@ -1,5 +1,5 @@
-import LoginPage from "../POM/loginPage"
-import ProductsPage from "../POM/productsPage";
+import LoginPage from "../../POM/loginPage"
+import ProductsPage from "../../POM/productsPage";
 
 const loginPage = new LoginPage();
 const productPage = new ProductsPage();
