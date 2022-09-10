@@ -1,3 +1,5 @@
+const expectedVisibilityCondition = 'be.visible';
+
 export class LoginPage {
 
     loginLogo(): Cypress.Chainable<JQuery> {
@@ -26,15 +28,6 @@ export class LoginPage {
 
     loginCredentials(): Cypress.Chainable<JQuery> {
         return cy.get('.login_credentials_wrap-inner');
-    }
-
-    checkIfPageIsFullyLoaded(): void {
-        this.loginLogo().should('be.visible');
-        this.inputUsername().should('be.visible');
-        this.inputPassword().should('be.visible');
-        this.buttonLogin().should('be.visible');
-        this.image().should('be.visible');
-        this.loginCredentials().should('be.visible');
     }
 
     typeLoginAndCheckIfFieldIsFilled(login: string) {
