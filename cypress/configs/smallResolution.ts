@@ -6,8 +6,8 @@ export default defineConfig({
             // implement node event listeners here
         },
         baseUrl: 'https://www.saucedemo.com',
-        viewportHeight: 576,
-        viewportWidth: 960,
+        viewportWidth: 576,
+        viewportHeight: 960,
         chromeWebSecurity: false,
     },
 });
