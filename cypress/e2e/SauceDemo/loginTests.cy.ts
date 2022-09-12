@@ -12,13 +12,13 @@ describe('Performing logging tests in application', () => {
         cy.clearSessionStorageAndVisitPage();
     })
 
-    it('#1 When user submit empty form #Then proper error message should be returned', () => {
+    it('#1 When user submit empty form #Then proper error message should be returned - TC1', () => {
         loginPage.buttonLogin().click();
         loginPage.errorMessageContainer().should('contain', 'Username is required');
     })
 
 
-    it('#2 When user try to log as locked_out_user #Then proper error message should be returned', () => {
+    it('#2 When user try to log as locked_out_user #Then proper error message should be returned - TC2', () => {
         loginPage.typeLoginAndCheckIfFieldIsFilled('locked_out_user');
         loginPage.typePasswordAndCheckIfFieldIsFilled(password);
         loginPage.buttonLogin().click();
@@ -26,7 +26,7 @@ describe('Performing logging tests in application', () => {
         loginPage.errorMessageContainer().should('contain', 'Epic sadface: Sorry, this user has been locked out.')
     })
 
-    it('#3 When user try to log as proper user #Then user should log in, page should changed and local storage should contain proper data', () => {
+    it('#3 When user try to log as proper user #Then user should log in, page should changed and local storage should contain proper data - TC2', () => {
         loginPage.typeLoginAndCheckIfFieldIsFilled(properUsername);
         loginPage.typePasswordAndCheckIfFieldIsFilled(password);
 

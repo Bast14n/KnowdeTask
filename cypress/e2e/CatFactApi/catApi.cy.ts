@@ -1,5 +1,5 @@
 describe('Perform api tests', () => {
-    it('#1 When user get random fact about cats #Then proper response should be returned', () => {
+    it('#1 When user get random fact about cats #Then proper response should be returned - TC5', () => {
         cy.request('https://catfact.ninja/fact').then(response => {
             const responseStatus = response.status;
             const catFact = response.body.fact;

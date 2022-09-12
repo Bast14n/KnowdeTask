@@ -23,12 +23,20 @@ class ProductsPage {
         return cy.get('.product_sort_container');
     }
 
-    basketButton(): Cypress.Chainable<JQuery> {
+    cardButton(): Cypress.Chainable<JQuery> {
         return cy.get('.shopping_cart_link');
     }
 
     buttonAddBackpack(): Cypress.Chainable<JQuery> {
         return cy.get('#add-to-cart-sauce-labs-backpack');
+    }
+
+    buttonRemoveBackpack(): Cypress.Chainable<JQuery> {
+        return cy.get('#remove-sauce-labs-backpack');
+    }
+
+    iconCardItemQuantity(): Cypress.Chainable<JQuery> {
+        return cy.get('.shopping_cart_badge');
     }
 
     footer(): Cypress.Chainable<JQuery> {
@@ -41,7 +49,7 @@ class ProductsPage {
 
     checkIfPageIsCorrectlyDisplayed(): void {
         this.appLogo().should(expectedVisibilityCondition);
-        this.basketButton().should(expectedVisibilityCondition);
+        this.cardButton().should(expectedVisibilityCondition);
         this.burgerMenu().should(expectedVisibilityCondition);
         this.title().should(expectedVisibilityCondition);
         this.filterProducts().should(expectedVisibilityCondition);
