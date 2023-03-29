@@ -37,6 +37,10 @@ describe('Performing logging tests in application', () => {
 
         // Checking session storage value is disabled because currently data is not been saved there after login
         //cy.assertSessionStorageData('session-username', properUsername);
+        cy.getCookie('session-username')
+            .then(coockie => {
+                assert(coockie.value, properUsername)
+            })
 
         productPage.checkIfPageIsCorrectlyDisplayed();
     })
