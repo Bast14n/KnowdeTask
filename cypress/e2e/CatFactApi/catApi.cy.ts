@@ -5,5 +5,12 @@ describe('Perform api tests', () => {
             expect(typeof (body.fact)).to.eq('string');
             expect(typeof (body.length)).to.eq('number');
         })
+
+        cy.api('GET', 'https://catfact.ninja/fact').then(({ status, body }) => {
+            expect(status).to.eq(200);
+            expect(typeof (body.fact)).to.eq('string');
+            expect(typeof (body.length)).to.eq('number');
+        })
+
     })
 })
